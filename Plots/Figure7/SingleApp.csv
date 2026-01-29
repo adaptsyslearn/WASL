@@ -1,0 +1,12 @@
+#App	Mono-AC	UncorAC	WASl-AC	Mono-RL	UncorRL	WASL-RL	Mono-PI	UncorPI	WASL-PI
+Xapian	11.38	14.75	11.52	11.50	32.27	12.016	11.60	30.70	11.608
+Moses	5.012	6.024	4.671	5.093	7.4380	4.4449	5.012	8.658	4.4202
+Masstree	0.8942	1.634	0.805	0.910	2.1720	1.09801	0.8904	2.5937	0.8559
+Silo	1.553	1.683	1.637	4.567	5.0097	4.32734	4.4909	5.5833	4.8911
+DNN	1.684	1.960	1.814	1.686	1.9990	1.80798	1.6712	2.1064	1.8112
+GeoMean	2.66	3.43	2.64	3.33	5.54	3.406	3.295	6.05	3.296
+
+#Columns 2 to 4: Adaptive Control ,,,,,,,,,,,,,
+#Columns 5 to 7: RL Control,,,,,,,,,,,,,
+#Columns 8 to 10: PI Control  ,,,,,,,,,,,,,
+#(all 95th percentile latency),,,,,,,,,,,,,
