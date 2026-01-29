@@ -7,7 +7,7 @@ in multi-tenant clouds to mitigate performance interference arising due to
 multiple colocated adaptive applications. 
 
 TailBench applications have been used for evaluation. 
-Tailbench details are [here](https://github.com/adaptsyslearn/TailBenchMod).
+Tailbench details are [here](https://github.com/adaptsyslearn/TailBenchMod).<br>
 TailBench      : Updates to standard TailBench suite used for experiments
 
 ### Code Structure
