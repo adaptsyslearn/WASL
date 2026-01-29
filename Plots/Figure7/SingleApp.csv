@@ -7,6 +7,7 @@ DNN	1.684	1.960	1.814	1.686	1.9990	1.80798	1.6712	2.1064	1.8112
 GeoMean	2.66	3.43	2.64	3.33	5.54	3.406	3.295	6.05	3.296
 
 #Columns 2 to 4: Adaptive Control ,,,,,,,,,,,,,
-#Columns 5 to 7: RL Control,,,,,,,,,,,,,
-#Columns 8 to 10: PI Control  ,,,,,,,,,,,,,
+#Columns 5 to 7: RL ,,,,,,,,,,,,,
+#Columns 8 to 10: PI  ,,,,,,,,,,,,,
+
 #(all 95th percentile latency),,,,,,,,,,,,,
