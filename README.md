@@ -2,11 +2,14 @@
 
 This repo contains source code and other artifacts related to the paper 
 "WASL: Harmonizing Uncoordinated Adaptive Modules in Multi-Tenant Cloud Systems". 
-This is a technique for runtime multi-module coordination in multi-tenant clouds to mitigate performance 
-interference arising due to multiple colocated adaptive applications. 
+WASL is a rate-adaptation based technique for runtime multi-module coordination 
+in multi-tenant clouds to mitigate performance interference arising due to 
+multiple colocated adaptive applications. 
 
 TailBench applications have been used for evaluation. 
 Tailbench details are [here](https://github.com/adaptsyslearn/TailBenchMod).
+
+
 
 ## Citation
 
