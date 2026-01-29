@@ -9,7 +9,17 @@ multiple colocated adaptive applications.
 TailBench applications have been used for evaluation. 
 Tailbench details are [here](https://github.com/adaptsyslearn/TailBenchMod).
 
-
+### Code Structure
+```bash
+/                           : Overall Runtime System
+|-- OptimizingController    : Adaptation Module 
+|-- PoleAdaptation          : WASL-based Rate Adaptation
+|-- apto-tailbench-apps     : Wrapper/Profiler for Application/System 
+|-- apto                    : Processing and Activation, communication with the Adaptation Module
+|-- TailBench               : Updates to standard TailBench suite used for experiments 
+|-- helperScripts           : Scripts to process files or calculate statistics 
+|-- Plots                   : Scripts related to some results
+```
 
 ## Citation
 
