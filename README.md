@@ -16,8 +16,8 @@ TailBench      : Updates to standard TailBench suite used for experiments
 /                           : Overall Runtime System
 |-- OptimizingController    : Adaptation Module 
 |-- PoleAdaptation          : WASL-based Rate Adaptation
-|-- apto-tailbench-apps     : Wrapper/Profiler for Application/System with
-|-- apto-tailbench-apps/scripts : helper scripts for profiling or data collection
+|-- apto-tailbench-apps     : Wrapper/Profiler for Application/System 
+|-- apto-tailbench-apps/scripts : Helper scripts for profiling or data collection
 |-- apto                    : Processing and Activation,
                               coordination with the Adaptation Module
 |-- SetUp.md                : Readme about the setup of the overall system
