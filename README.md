@@ -8,6 +8,7 @@ multiple colocated adaptive applications.
 
 TailBench applications have been used for evaluation. 
 Tailbench details are [here](https://github.com/adaptsyslearn/TailBenchMod).
+TailBench      : Updates to standard TailBench suite used for experiments
 
 ### Code Structure
 ```bash
@@ -21,7 +22,6 @@ Tailbench details are [here](https://github.com/adaptsyslearn/TailBenchMod).
 |-- SetUp.md                : Readme about the setup of the overall system
 |-- Plots                   : Scripts related to some results
 ```
-TailBench                   : Updates to standard TailBench suite used for experiments
 
 Readme files for each of the folders are being further updated for documentation. 
 
