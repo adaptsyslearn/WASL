@@ -1,4 +1,4 @@
-# WASL
+# Adaptation With WASL
 
 This repo contains source code and other artifacts related to the paper 
 "WASL: Harmonizing Uncoordinated Adaptive Modules in Multi-Tenant Cloud Systems". 
