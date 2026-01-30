@@ -12,6 +12,9 @@ TailBench applications have been used for evaluation.
 Tailbench details are [here](https://github.com/adaptsyslearn/TailBenchMod).<br>
 TailBench      : Updates to standard TailBench suite used for experiments
 
+The SetUp instructions are available [here](https://github.com/adaptsyslearn/AdaptationWithWASL/blob/main/SetUp.md). 
+
+
 ### Code Structure
 ```bash
 /                           : Overall Runtime System
