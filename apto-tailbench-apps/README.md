@@ -1,7 +1,11 @@
-# Apto TailBench Applications
+# Apto-TailBench-Applications
 
-A tight wrapper around Tailbench applications that utilizes the adaptation pipeline.
+A wrapper around Tailbench applications that utilizes the overall runtime system.
 
-The wrapper sets up adaptation using apto for the application and the underlying system.
-The wrapper then launches the application and the system module. After every iteration the it reads the start and end timestamp of serving a request from the tailbench application using a linux message queue. 
-Compute latency is calculated using these timestamps and passed to apto which then takes over adaptation.
+For any other application or benchmark suite, this layer needs to be updated accordingly.  
+
+The wrapper sets up adaptation using **apto** (i.e., processing/activation layer) for the application and the system. 
+The wrapper then launches the application and the system module. After every iteration, the module 
+reads the start and end timestamps of a served request from the tailbench application using a linux message queue. 
+Compute latency is calculated using these timestamps and passed to the processing/activation layer, 
+that then proceeds with adaptation.
