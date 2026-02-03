@@ -25,7 +25,7 @@ d. The `OptimizingController` (adaptation method) invokes WASL (`PoleAdaptation`
 
 ## Prerequisites
 
-To run experiments, the user either needs to have **root** access, or provide access to the binaries to read energy/power consumption data of the system.
+User either needs *root* access, or provide access to the binaries to read energy consumption data of the system.
 
 1. [Energymon](https://github.com/energymon/energymon): Install the implementation that is appropriate for your system.
 2. [Rust](https://rust-lang.org/tools/install/): Use standard configuration that allow using `cargo`.
