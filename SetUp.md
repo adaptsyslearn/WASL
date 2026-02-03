@@ -4,11 +4,11 @@ This guide provides the prerequisites and the steps required to setup the system
 
 ## Code Organization
 
-The following independent modules work in conjunction for the functioning of the overall runtime system:
+The following independent modules work in conjunction for the functioning of the overall runtime system (top-down as in Fig.5):
 
 1. [apto-tailbench-apps](./apto-tailbench-apps/) -- Wrappers around an application [TailBench](https://github.com/adaptsyslearn/TailBenchMod)
-   that report specific parameters to the processing/activation layer (Apto).
-2. [apto](./apto) -- A middle layer that application(s) and the system can use to monitor and adjust parameters, i.e. a rust implementation of the [GOAL](https://dl.acm.org/doi/pdf/10.1145/3563835.3567655) work.
+   that profile specified parameters to the processing/activation layer (Apto).
+2. [apto](./apto) -- A layer that application(s) and the system can use to monitor and adjust parameters, i.e. a rust implementation of the [GOAL](https://dl.acm.org/doi/pdf/10.1145/3563835.3567655) work.
 3. [OptimizingController](./OptimizingController) -- Local adaptation module(s) for the system and the application.
 4. [WASL](./PoleAdaptation) -- The novel multi-module adaptation method proposed in the paper.
    
