@@ -1,3 +1,4 @@
 # WASL (PoleAdaptation)
 
-This project contains the core implementation of WASL. The core logic for rate calculation is found in [./src/lib.rs](./src/lib.rs).
+This folder has the core implementation of WASL. 
+The rate adaptation part can be found in [./src/lib.rs](./src/lib.rs).
