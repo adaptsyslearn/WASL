@@ -28,7 +28,7 @@ The SetUp instructions are available [here](https://github.com/adaptsyslearn/Ada
 |-- Plots                   : Scripts related to some results
 ```
 
-Readme files for each of the folders are being further updated for documentation.
+*Readme* files for each of the folders are being further updated for enhanced documentation.
 
 ## Citation
 
