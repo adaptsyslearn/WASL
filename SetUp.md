@@ -27,8 +27,9 @@ To run experiments, the user either needs to have **root** access, or provide ac
 
 1. [Energymon](https://github.com/energymon/energymon): Install the implementation that is appropriate for your system.
 2. [Rust](https://rust-lang.org/tools/install/): Use standard configuration that allow using `cargo`.
-3. A [modified version](https://github.com/adaptsyslearn/TailBenchMod) of [TailBench](https://tailbench.csail.mit.edu/) that is provided with this repository.
-  a. Remember to download tailbench inputs.
+3. A [modified version](https://github.com/adaptsyslearn/TailBenchMod) of [TailBench](https://tailbench.csail.mit.edu/) provided with
+   this repository and related tailBench inputs.
+  
 
 ## Setup
 
