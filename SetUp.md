@@ -1,6 +1,6 @@
 # A Guide to using the overall runtime system involving WASL
 
-This guide provides the prerequisites and the steps required to setup the system as per Algorithms 1 and 2 mentioned in the paper.
+This guide provides the prerequisites and the steps required to setup the system as per Algorithms 1 and 2 in the paper.
 
 ## Code Organization
 
