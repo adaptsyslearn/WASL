@@ -1,8 +1,11 @@
 # Apto
 
-This is a Rust implementation of the **GOAL**[[1](#goal)] paper.
+Apto is a Rust implementation of the **GOAL**[[1](#goal)] paper.
 
-GOAL is a framework for general and dynamic adaptation. GOAL calls into the optimizing controller and WASL from [src/optimize.rs](./src/optimize.rs).
+GOAL is a framework for general and dynamic adaptation. <br>
+Conceptually, Apto is the processing and activation layer as in Figure.5 (in the paper) 
+that uses the adaptation module from [src/optimize.rs](./src/optimize.rs).
+
 
 # Citations
 
