@@ -46,7 +46,7 @@ To run experiments, the user either needs to have **root** access, or provide ac
 
 
 A `knobtable` is an enumeration of valid configurations (as in Table.3 in the paper) that `apto` can use. 
-A sample **knobtable** for an application can be found in [./apto-tailbench-apps/knobtable](./apto-tailbench-apps/knobtable). 
+A sample `knobtable` for an application can be found in [./apto-tailbench-apps/knobtable](./apto-tailbench-apps/knobtable). 
 Once this table is formed based on the available system resources, an application can be profiled as follows:
 
 ```
