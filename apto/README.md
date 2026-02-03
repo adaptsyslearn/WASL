@@ -1,6 +1,6 @@
 # Apto
 
-A Rust implementation of **GOAL**[[1](#goal)].
+This is a Rust implementation of the **GOAL**[[1](#goal)] paper.
 
 GOAL is a framework for general and dynamic adaptation. GOAL calls into the optimizing controller and WASL from [src/optimize.rs](./src/optimize.rs).
 
