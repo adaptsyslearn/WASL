@@ -4,17 +4,22 @@ This guide provides the prerequisites and the steps required to setup the system
 
 ## Code Organization
 
-This respository provides several independent projects that need to be used together to repeat the experiments presented in the paper.
-1. [OptimizingController](./OptimizingController) -- Adaptation modules that provide the configurations to use for the system and the application.
-2. [apto](./apto) -- A middle layer that applications and the system can use to monitor and adjust parameters, i.e. a rust implementation of the [GOAL](https://dl.acm.org/doi/pdf/10.1145/3563835.3567655) work. 
-3. [apto-tailbench-apps](./apto-tailbench-apps/) -- Wrappers around an application [TailBench](https://github.com/adaptsyslearn/TailBenchMod)
-   that report specific parameters to the processing/activation layer (Apto).
+The following independent modules work in conjunction for the functioning of the overall runtime system:
 
-1. Applications connect to `apto-tailbench-apps` using a linux message queues to report performance information.<br>
-2. `apto-tailbench-apps` is responsible for setting up `apto` with the type of adaptation and the goal of the application that needs to be achieved. 
+1. [apto-tailbench-apps](./apto-tailbench-apps/) -- Wrappers around an application [TailBench](https://github.com/adaptsyslearn/TailBenchMod)
+   that report specific parameters to the processing/activation layer (Apto).
+2. [apto](./apto) -- A middle layer that application(s) and the system can use to monitor and adjust parameters, i.e. a rust implementation of the [GOAL](https://dl.acm.org/doi/pdf/10.1145/3563835.3567655) work.
+3. [OptimizingController](./OptimizingController) -- Local adaptation module(s) for the system and the application.
+4. [WASL](./PoleAdaptation) -- The novel multi-module adaptation method proposed in the paper.
+   
+
+Interactions between the modules:
+
+a. Applications connect to `apto-tailbench-apps` using a linux message queues to report performance information.<br>
+b. `apto-tailbench-apps` is responsible for setting up `apto` with the type of adaptation and the goal of the application that needs to be achieved. 
 `apto-tailbench-apps` passes the information that it receives from the (tailbench) applications to `apto`. <br> 
-3. `apto` uses this information and the `OptimizingController` to determine the configurations that need to be used to achieve the application's goals. <br> 
-4. The `OptimizingController` invokes WASL (`PoleAdaptation`) as needed to determine the rate at which adaptation should be performed to address multi-module multi-tenant (global) interference.
+c. `apto` uses this information along with the `OptimizingController` for resource adjustments to achieve an application's goals. <br> 
+d. The `OptimizingController` invokes WASL (`PoleAdaptation`) as needed to determine the rate at which adaptation should be performed to address multi-module multi-tenant (global) interference.
 
 ## Prerequisites
 
