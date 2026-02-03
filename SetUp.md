@@ -1,37 +1,48 @@
-# A Guide to using WASL
+# A Guide to using the overall runtime system involving WASL
 
-This guide provides the prerequisites and the steps required to setup WASL and the control algorithms presented in the paper.
+This guide provides the prerequisites and the steps required to setup the system as per Algorithms 1 and 2 mentioned in the paper.
 
 ## Code Organization
 
 This respository provides several independent projects that need to be used together to repeat the experiments presented in the paper.
 1. [OptimizingController](./OptimizingController) -- Adaptation modules that provide the configurations to use for the system and the application.
-2. [apto](./apto) -- A middle layer that applications and underlying systems can use to monitor metrics and adjust knobs. A rust implementation of [GOAL](https://dl.acm.org/doi/pdf/10.1145/3563835.3567655)
-3. [apto-tailbench-apps](./apto-tailbench-apps/) -- Wrappers around [modified version](https://github.com/adaptsyslearn/TailBenchMod) that report metric information to Apto.
+2. [apto](./apto) -- A middle layer that applications and the system can use to monitor and adjust parameters, i.e. a rust implementation of the [GOAL](https://dl.acm.org/doi/pdf/10.1145/3563835.3567655) work. 
+3. [apto-tailbench-apps](./apto-tailbench-apps/) -- Wrappers around an application [TailBench](https://github.com/adaptsyslearn/TailBenchMod)
+   that report specific parameters to the processing/activation layer (Apto).
 
-At a high-level, Tailbench applications connect to `apto-tailbench-apps` using a linux message queues to report performance information. `apto-tailbench-apps` is responsible for setting up `apto` with the type of adaptation and the goal of the application that needs to be achieved. `apto-tailbench-apps` passes the information that it receives from the tailbench applications to `apto`. `apto` uses this information and the `OptimizingController` to determine the configurations that need to be used to achieve the application's goals. The `OptimizingController` calls into `PoleAdaptation` (WASL) to determine the rate at which adaptation should be performed.
+Applications connect to `apto-tailbench-apps` using a linux message queues to report performance information.<br> 
+`apto-tailbench-apps` is responsible for setting up `apto` with the type of adaptation and the goal of the application that needs to be achieved. 
+`apto-tailbench-apps` passes the information that it receives from the (tailbench) applications to `apto`. <br> 
+`apto` uses this information and the `OptimizingController` to determine the configurations that need to be used to achieve the application's goals. <br> 
+The `OptimizingController` invokes WASL (`PoleAdaptation`) as needed to determine the rate at which adaptation should be performed 
+to address multi-module multi-tenant (global) interference.
 
 ## Prerequisites
 
-To run experiments, the user either needs to have root access, or provide access to the binaries to read energy/power consumption data of the underlying system.
+To run experiments, the user either needs to have **root** access, or provide access to the binaries to read energy/power consumption data of the system.
 
 1. [Energymon](https://github.com/energymon/energymon): Install the implementation that is appropriate for your system.
-2. [Rust](https://rust-lang.org/tools/install/): Use the default or any sane configurations that allow using `cargo`.
+2. [Rust](https://rust-lang.org/tools/install/): Use standard configuration that allow using `cargo`.
 3. A [modified version](https://github.com/adaptsyslearn/TailBenchMod) of [TailBench](https://tailbench.csail.mit.edu/) that is provided with this repository.
   a. Remember to download tailbench inputs.
 
 ## Setup
 
-1. Download all of the repositories provided in this project into your chosen locations and update the `Cargo.toml` files in `apto-tailbench-apps`, `apto` and `OptimizingController` accordingly.
-2. Update the location of the tailbench binaries in `apto-tailbench-apps/src/apps.rs` to reflect your configuration.
-3. Compile tailbench applications using the instructions provided in that project.
-4. Compile `apto-tailbench-apps` using `cargo build --release --bin main` inside `apto-tailbench-apps` directory.
+1. Download all the repositories provided in this project into your chosen location
+2. Update `Cargo.toml` files in `apto-tailbench-apps`, `apto` and `OptimizingController` accordingly.
+3. Update the location of the tailbench binaries in `apto-tailbench-apps/src/apps.rs` to reflect related file paths.
+4. Compile tailbench applications using the instructions provided.
+5. Compile `apto-tailbench-apps` using `cargo build --release --bin main` inside `apto-tailbench-apps` directory.
 
 ## Profiling applications
 
-`apto` needs a `measuretable` for an application for it to adapt to application's goals.
+`apto` needs a `measuretable` for an application to adapt to an application's goals.<br>
+`apto-tailbench-apps` can be used to obtain the `measuretable` (as in Table.2 in the paper) after formulating a suitable `knobtable`. <br>
 
-This `apto-tailbench-apps` can be used to obtain this `measuretable` but you must first provide a `knobtable`. A `knobtable` is simply an enumeration of all valid configurations that the `apto` can use. A sample knobtable for the applications can be found in [./apto-tailbench-apps/knobtable](./apto-tailbench-apps/knobtable). Once this knobtable is available an application can be profiled as follows:
+
+A `knobtable` is an enumeration of valid configurations (as in Table.3 in the paper) that `apto` can use. 
+A sample **knobtable** for an application can be found in [./apto-tailbench-apps/knobtable](./apto-tailbench-apps/knobtable). 
+Once this table is formed based on the available system resources, an application can be profiled as follows:
 
 ```
 cd ./apto-tailbench-apps
@@ -39,14 +50,18 @@ $ cargo build --release --bin main
 $ sudo RUST_LOG=info PROFILE=1000 ./target/release/main --warmup-time <WARMUP-SECONDS> profile <APPLICATION-NAME>
 ```
 
-This command outputs a file named `measuretable`. It is recommended that the `knobtable` and `measuretable` be renamed to `<APPLICATION-NAME>.kt` and `<APPLICATION-NAME>.mt` respectively.
+This command outputs a file named `measuretable`. 
+It is recommended that the `knobtable` and `measuretable` be renamed to `<APPLICATION-NAME>.kt` and `<APPLICATION-NAME>.mt`, respectively. <br>
+
 
 ## Running Experiments
 
-The aforementioned infrastructure runs all applications and systems as modules. Each module is assigned a tag. For a single application scenario, the application is always assigned the tag 0 and the system is always assigned the tag 1. Similarly, for a multi application scenario, the applications in always assigned the tag 0 and 1 and the system is assigned the tag 2.
+The overall runtime system executes all applications and system as modules. Each module is assigned a tag.<br>
+For a single application scenario, the application is always assigned the tag 0, while the system the tag 1. 
+For a multi application scenario, the applications are always assigned the tag 0 and 1, while the system the tag 2.
 
 ### Selecting adaptation module type
-Each module, can be ran with a different adaptation type. The adaptation type is controlled using environment variables as follows:
+Each module, can be executed with a different adaptation type. The adaptation type is controlled using environment variables as follows:
 ```
 # Run with learning based adaptation
 LEARNING_BASED_<TAG>=y CONF_TYPE_<TAG>=multi
