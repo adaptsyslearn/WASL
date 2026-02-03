@@ -10,12 +10,11 @@ This respository provides several independent projects that need to be used toge
 3. [apto-tailbench-apps](./apto-tailbench-apps/) -- Wrappers around an application [TailBench](https://github.com/adaptsyslearn/TailBenchMod)
    that report specific parameters to the processing/activation layer (Apto).
 
-Applications connect to `apto-tailbench-apps` using a linux message queues to report performance information.<br> 
-`apto-tailbench-apps` is responsible for setting up `apto` with the type of adaptation and the goal of the application that needs to be achieved. 
+1. Applications connect to `apto-tailbench-apps` using a linux message queues to report performance information.<br>
+2. `apto-tailbench-apps` is responsible for setting up `apto` with the type of adaptation and the goal of the application that needs to be achieved. 
 `apto-tailbench-apps` passes the information that it receives from the (tailbench) applications to `apto`. <br> 
-`apto` uses this information and the `OptimizingController` to determine the configurations that need to be used to achieve the application's goals. <br> 
-The `OptimizingController` invokes WASL (`PoleAdaptation`) as needed to determine the rate at which adaptation should be performed 
-to address multi-module multi-tenant (global) interference.
+3. `apto` uses this information and the `OptimizingController` to determine the configurations that need to be used to achieve the application's goals. <br> 
+4. The `OptimizingController` invokes WASL (`PoleAdaptation`) as needed to determine the rate at which adaptation should be performed to address multi-module multi-tenant (global) interference.
 
 ## Prerequisites
 
