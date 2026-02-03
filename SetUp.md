@@ -61,7 +61,7 @@ This command outputs a file named `measuretable`.
 It is recommended that the `knobtable` and `measuretable` be renamed to `<APPLICATION-NAME>.kt` and `<APPLICATION-NAME>.mt`, respectively. <br>
 
 
-## Running Experiments
+## Running Adaptation-related Experiments
 
 The overall runtime system executes all application(s) and system as modules. Each module is assigned a tag.<br>
 For a single application scenario, the application is always assigned the tag 0, while the system the tag 1. <br>
