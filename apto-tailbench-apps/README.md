@@ -12,3 +12,5 @@ reads the start and end timestamps of a served request from the tailbench applic
 
 Compute latency is calculated using these timestamps and passed to the processing/activation layer, 
 that then proceeds with adaptation.
+
+The implementation of *Monolithic* Adaptation can be found in *.src/apps.rs*.
