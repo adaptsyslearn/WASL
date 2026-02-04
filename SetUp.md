@@ -12,7 +12,7 @@ The following independent modules work in conjunction for the functioning of the
 3. [OptimizingController](./OptimizingController) -- Local adaptation module(s) for the system and the application.
    
    Algo.1 involves 1, 2, and 3. 
-4. [WASL](./PoleAdaptation) -- The novel multi-module adaptation method as proposed in Algo.2 of the paper.
+4. [PoleAdaptation](./PoleAdaptation) -- The novel multi-module adaptation method WASL as proposed in Algo.2 of the paper.
    
 
 Interactions between the modules:
